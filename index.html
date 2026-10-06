@@ -18,121 +18,328 @@
             color: white;
         }
 
-        .hero {
+        .screen {
             min-height: 100vh;
             display: flex;
-            align-items: center;
             justify-content: center;
+            align-items: center;
             padding: 25px;
-            text-align: center;
         }
 
-        .content {
+        .container {
             width: 100%;
             max-width: 500px;
         }
 
         .logo {
-            font-size: 60px;
-            margin-bottom: 10px;
+            text-align: center;
+            font-size: 55px;
         }
 
         h1 {
-            font-size: 38px;
-            margin: 5px 0;
+            text-align: center;
+            font-size: 34px;
+            margin: 10px 0;
         }
 
         .subtitle {
+            text-align: center;
             color: #b7c9bf;
-            font-size: 17px;
             line-height: 1.5;
         }
 
         .card {
             background: #10291e;
             padding: 25px;
-            margin-top: 30px;
             border-radius: 22px;
+            margin-top: 25px;
         }
 
-        .card h2 {
-            margin-top: 0;
+        label {
+            display: block;
+            margin-top: 15px;
+            margin-bottom: 7px;
+            font-weight: bold;
         }
 
-        .card p {
-            color: #b7c9bf;
-            line-height: 1.5;
+        input,
+        select {
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            background: #263c32;
+            color: white;
+            font-size: 16px;
         }
 
         button {
             width: 100%;
-            padding: 16px;
-            margin-top: 12px;
+            padding: 15px;
+            margin-top: 20px;
             border: none;
             border-radius: 12px;
+            background: #22c55e;
+            color: white;
             font-size: 17px;
             font-weight: bold;
         }
 
-        .start {
-            background: #22c55e;
-            color: white;
+        .hidden {
+            display: none;
         }
 
-        .login {
-            background: #263c32;
-            color: white;
-        }
-
-        .footer {
-            margin-top: 25px;
-            color: #789487;
-            font-size: 13px;
+        .error {
+            color: #ff8a8a;
+            margin-top: 10px;
         }
     </style>
 </head>
 
 <body>
 
-    <div class="hero">
+<!-- WELCOME SCREEN -->
 
-        <div class="content">
+<div id="welcomeScreen" class="screen">
 
-            <div class="logo">🎓</div>
+    <div class="container">
 
-            <h1>Nigerian University Life</h1>
+        <div class="logo">🎓</div>
 
-            <p class="subtitle">
-                Study. Hustle. Make friends.
-                Build your future.
+        <h1>Nigerian University Life</h1>
+
+        <p class="subtitle">
+            Study. Hustle. Make friends.
+            Build your future.
+        </p>
+
+        <div class="card">
+
+            <h2>Start Your University Journey</h2>
+
+            <p>
+                Create your student and experience
+                university life your way.
             </p>
 
-            <div class="card">
-
-                <h2>Start Your University Journey</h2>
-
-                <p>
-                    Create your student and experience
-                    university life your way.
-                </p>
-
-                <button class="start">
-                    Create Student
-                </button>
-
-                <button class="login">
-                    Continue Game
-                </button>
-
-            </div>
-
-            <div class="footer">
-                Nigerian University Life © 2026
-            </div>
+            <button onclick="showCreateStudent()">
+                Create Student
+            </button>
 
         </div>
 
     </div>
+
+</div>
+
+
+<!-- CREATE STUDENT SCREEN -->
+
+<div id="createScreen" class="screen hidden">
+
+    <div class="container">
+
+        <div class="logo">🎓</div>
+
+        <h1>Create Your Student</h1>
+
+        <p class="subtitle">
+            Tell us a little about yourself.
+        </p>
+
+        <div class="card">
+
+            <label>Student Name</label>
+
+            <input
+                id="studentName"
+                type="text"
+                placeholder="Enter your name"
+            >
+
+            <label>Age</label>
+
+            <input
+                id="studentAge"
+                type="number"
+                placeholder="Enter your age"
+                min="15"
+                max="60"
+            >
+
+            <label>Gender</label>
+
+            <select id="studentGender">
+
+                <option value="">
+                    Select gender
+                </option>
+
+                <option value="Male">
+                    Male
+                </option>
+
+                <option value="Female">
+                    Female
+                </option>
+
+            </select>
+
+            <label>Faculty</label>
+
+            <select id="studentFaculty">
+
+                <option value="">
+                    Select faculty
+                </option>
+
+                <option>
+                    Social Sciences
+                </option>
+
+                <option>
+                    Management Sciences
+                </option>
+
+                <option>
+                    Engineering
+                </option>
+
+                <option>
+                    Sciences
+                </option>
+
+                <option>
+                    Humanities
+                </option>
+
+                <option>
+                    Law
+                </option>
+
+                <option>
+                    Medicine
+                </option>
+
+            </select>
+
+            <label>Level</label>
+
+            <select id="studentLevel">
+
+                <option value="">
+                    Select level
+                </option>
+
+                <option>100 Level</option>
+                <option>200 Level</option>
+                <option>300 Level</option>
+                <option>400 Level</option>
+                <option>500 Level</option>
+
+            </select>
+
+            <div id="errorMessage" class="error"></div>
+
+            <button onclick="createStudent()">
+                Start University Life
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<script>
+
+function showCreateStudent() {
+
+    document
+        .getElementById("welcomeScreen")
+        .classList
+        .add("hidden");
+
+    document
+        .getElementById("createScreen")
+        .classList
+        .remove("hidden");
+
+}
+
+
+function createStudent() {
+
+    const name =
+        document.getElementById("studentName").value;
+
+    const age =
+        document.getElementById("studentAge").value;
+
+    const gender =
+        document.getElementById("studentGender").value;
+
+    const faculty =
+        document.getElementById("studentFaculty").value;
+
+    const level =
+        document.getElementById("studentLevel").value;
+
+
+    if (
+        name === "" ||
+        age === "" ||
+        gender === "" ||
+        faculty === "" ||
+        level === ""
+    ) {
+
+        document
+            .getElementById("errorMessage")
+            .innerText =
+            "Please complete all the information.";
+
+        return;
+
+    }
+
+
+    localStorage.setItem(
+        "studentName",
+        name
+    );
+
+    localStorage.setItem(
+        "studentAge",
+        age
+    );
+
+    localStorage.setItem(
+        "studentGender",
+        gender
+    );
+
+    localStorage.setItem(
+        "studentFaculty",
+        faculty
+    );
+
+    localStorage.setItem(
+        "studentLevel",
+        level
+    );
+
+
+    alert(
+        "Welcome to Nigerian University Life, "
+        + name
+        + "!"
+    );
+
+}
+
+</script>
 
 </body>
 </html>
