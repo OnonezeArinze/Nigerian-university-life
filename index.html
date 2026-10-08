@@ -1,345 +1,421 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-    <title>Nigerian University Life</title>
+<title>Nigerian University Life</title>
 
-    <style>
-        * {
-            box-sizing: border-box;
-        }
+<style>
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: #071a12;
-            color: white;
-        }
+* {
+    box-sizing: border-box;
+}
 
-        .screen {
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 25px;
-        }
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    background: #071a12;
+    color: white;
+}
 
-        .container {
-            width: 100%;
-            max-width: 500px;
-        }
+.screen {
+    min-height: 100vh;
+    padding: 25px;
+}
 
-        .logo {
-            text-align: center;
-            font-size: 55px;
-        }
+.container {
+    width: 100%;
+    max-width: 500px;
+    margin: auto;
+}
 
-        h1 {
-            text-align: center;
-            font-size: 34px;
-            margin: 10px 0;
-        }
+.logo {
+    text-align: center;
+    font-size: 50px;
+}
 
-        .subtitle {
-            text-align: center;
-            color: #b7c9bf;
-            line-height: 1.5;
-        }
+h1 {
+    text-align: center;
+    margin: 10px 0;
+}
 
-        .card {
-            background: #10291e;
-            padding: 25px;
-            border-radius: 22px;
-            margin-top: 25px;
-        }
+.subtitle {
+    text-align: center;
+    color: #b7c9bf;
+}
 
-        label {
-            display: block;
-            margin-top: 15px;
-            margin-bottom: 7px;
-            font-weight: bold;
-        }
+.card {
+    background: #10291e;
+    padding: 20px;
+    border-radius: 20px;
+    margin-top: 20px;
+}
 
-        input,
-        select {
-            width: 100%;
-            padding: 14px;
-            border: none;
-            border-radius: 10px;
-            background: #263c32;
-            color: white;
-            font-size: 16px;
-        }
+.stat {
+    background: #1b3829;
+    padding: 15px;
+    border-radius: 12px;
+    margin-top: 10px;
+}
 
-        button {
-            width: 100%;
-            padding: 15px;
-            margin-top: 20px;
-            border: none;
-            border-radius: 12px;
-            background: #22c55e;
-            color: white;
-            font-size: 17px;
-            font-weight: bold;
-        }
+.stat-title {
+    color: #b7c9bf;
+    font-size: 14px;
+}
 
-        .hidden {
-            display: none;
-        }
+.stat-value {
+    font-size: 22px;
+    font-weight: bold;
+    margin-top: 5px;
+}
 
-        .error {
-            color: #ff8a8a;
-            margin-top: 10px;
-        }
-    </style>
+button {
+    width: 100%;
+    padding: 15px;
+    margin-top: 15px;
+    border: none;
+    border-radius: 12px;
+    background: #22c55e;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+}
+
+.hidden {
+    display: none;
+}
+
+</style>
 </head>
 
 <body>
 
-<!-- WELCOME SCREEN -->
+<!-- CREATE STUDENT -->
 
-<div id="welcomeScreen" class="screen">
+<div id="createScreen" class="screen">
 
-    <div class="container">
+<div class="container">
 
-        <div class="logo">🎓</div>
+<div class="logo">🎓</div>
 
-        <h1>Nigerian University Life</h1>
+<h1>Nigerian University Life</h1>
 
-        <p class="subtitle">
-            Study. Hustle. Make friends.
-            Build your future.
-        </p>
+<p class="subtitle">
+Create your student and begin your university journey.
+</p>
 
-        <div class="card">
+<div class="card">
 
-            <h2>Start Your University Journey</h2>
+<label>Student Name</label>
 
-            <p>
-                Create your student and experience
-                university life your way.
-            </p>
+<input
+id="studentName"
+type="text"
+placeholder="Enter your name"
+style="width:100%;padding:14px;border-radius:10px;border:none;margin-top:8px;"
+>
 
-            <button onclick="showCreateStudent()">
-                Create Student
-            </button>
+<label style="display:block;margin-top:15px;">
+Age
+</label>
 
-        </div>
+<input
+id="studentAge"
+type="number"
+placeholder="Enter your age"
+style="width:100%;padding:14px;border-radius:10px;border:none;margin-top:8px;"
+>
 
-    </div>
+<label style="display:block;margin-top:15px;">
+Gender
+</label>
+
+<select
+id="studentGender"
+style="width:100%;padding:14px;border-radius:10px;border:none;margin-top:8px;"
+>
+
+<option value="">Select gender</option>
+<option>Male</option>
+<option>Female</option>
+
+</select>
+
+<label style="display:block;margin-top:15px;">
+Faculty
+</label>
+
+<select
+id="studentFaculty"
+style="width:100%;padding:14px;border-radius:10px;border:none;margin-top:8px;"
+>
+
+<option value="">Select faculty</option>
+<option>Social Sciences</option>
+<option>Management Sciences</option>
+<option>Engineering</option>
+<option>Sciences</option>
+<option>Humanities</option>
+<option>Law</option>
+<option>Medicine</option>
+
+</select>
+
+<label style="display:block;margin-top:15px;">
+Level
+</label>
+
+<select
+id="studentLevel"
+style="width:100%;padding:14px;border-radius:10px;border:none;margin-top:8px;"
+>
+
+<option value="">Select level</option>
+<option>100 Level</option>
+<option>200 Level</option>
+<option>300 Level</option>
+<option>400 Level</option>
+<option>500 Level</option>
+
+</select>
+
+<button onclick="startGame()">
+Start University Life
+</button>
+
+</div>
+
+</div>
 
 </div>
 
 
-<!-- CREATE STUDENT SCREEN -->
+<!-- DASHBOARD -->
 
-<div id="createScreen" class="screen hidden">
+<div id="dashboardScreen" class="screen hidden">
 
-    <div class="container">
+<div class="container">
 
-        <div class="logo">🎓</div>
+<div class="logo">🎓</div>
 
-        <h1>Create Your Student</h1>
+<h1 id="welcomeName">
+Welcome!
+</h1>
 
-        <p class="subtitle">
-            Tell us a little about yourself.
-        </p>
+<p class="subtitle">
+Your University Dashboard
+</p>
 
-        <div class="card">
 
-            <label>Student Name</label>
+<div class="card">
 
-            <input
-                id="studentName"
-                type="text"
-                placeholder="Enter your name"
-            >
+<h2>Student Profile</h2>
 
-            <label>Age</label>
+<div class="stat">
 
-            <input
-                id="studentAge"
-                type="number"
-                placeholder="Enter your age"
-                min="15"
-                max="60"
-            >
+<div class="stat-title">
+Faculty
+</div>
 
-            <label>Gender</label>
+<div class="stat-value" id="dashFaculty">
+</div>
 
-            <select id="studentGender">
+</div>
 
-                <option value="">
-                    Select gender
-                </option>
 
-                <option value="Male">
-                    Male
-                </option>
+<div class="stat">
 
-                <option value="Female">
-                    Female
-                </option>
+<div class="stat-title">
+Level
+</div>
 
-            </select>
+<div class="stat-value" id="dashLevel">
+</div>
 
-            <label>Faculty</label>
+</div>
 
-            <select id="studentFaculty">
+</div>
 
-                <option value="">
-                    Select faculty
-                </option>
 
-                <option>
-                    Social Sciences
-                </option>
+<div class="card">
 
-                <option>
-                    Management Sciences
-                </option>
+<h2>Your Stats</h2>
 
-                <option>
-                    Engineering
-                </option>
+<div class="stat">
 
-                <option>
-                    Sciences
-                </option>
+<div class="stat-title">
+💰 Money
+</div>
 
-                <option>
-                    Humanities
-                </option>
+<div class="stat-value">
+₦50,000
+</div>
 
-                <option>
-                    Law
-                </option>
+</div>
 
-                <option>
-                    Medicine
-                </option>
 
-            </select>
+<div class="stat">
 
-            <label>Level</label>
+<div class="stat-title">
+❤️ Health
+</div>
 
-            <select id="studentLevel">
+<div class="stat-value">
+100%
+</div>
 
-                <option value="">
-                    Select level
-                </option>
+</div>
 
-                <option>100 Level</option>
-                <option>200 Level</option>
-                <option>300 Level</option>
-                <option>400 Level</option>
-                <option>500 Level</option>
 
-            </select>
+<div class="stat">
 
-            <div id="errorMessage" class="error"></div>
+<div class="stat-title">
+⚡ Energy
+</div>
 
-            <button onclick="createStudent()">
-                Start University Life
-            </button>
+<div class="stat-value">
+100%
+</div>
 
-        </div>
+</div>
 
-    </div>
+
+<div class="stat">
+
+<div class="stat-title">
+😊 Happiness
+</div>
+
+<div class="stat-value">
+80%
+</div>
+
+</div>
+
+
+<div class="stat">
+
+<div class="stat-title">
+📚 GPA
+</div>
+
+<div class="stat-value">
+0.00
+</div>
+
+</div>
+
+</div>
+
+
+<div class="card">
+
+<h2>
+What do you want to do?
+</h2>
+
+<button>
+📚 Study
+</button>
+
+<button>
+💼 Find a Job
+</button>
+
+<button>
+🍛 Eat
+</button>
+
+<button>
+👥 Social Life
+</button>
+
+<button>
+🏫 Campus
+</button>
+
+</div>
+
+</div>
 
 </div>
 
 
 <script>
 
-function showCreateStudent() {
+function startGame() {
 
-    document
-        .getElementById("welcomeScreen")
-        .classList
-        .add("hidden");
+const name =
+document.getElementById("studentName").value;
 
-    document
-        .getElementById("createScreen")
-        .classList
-        .remove("hidden");
+const age =
+document.getElementById("studentAge").value;
+
+const gender =
+document.getElementById("studentGender").value;
+
+const faculty =
+document.getElementById("studentFaculty").value;
+
+const level =
+document.getElementById("studentLevel").value;
+
+
+if (
+name === "" ||
+age === "" ||
+gender === "" ||
+faculty === "" ||
+level === ""
+) {
+
+alert("Please complete all the information.");
+
+return;
 
 }
 
 
-function createStudent() {
+localStorage.setItem("studentName", name);
 
-    const name =
-        document.getElementById("studentName").value;
+localStorage.setItem("studentAge", age);
 
-    const age =
-        document.getElementById("studentAge").value;
+localStorage.setItem("studentGender", gender);
 
-    const gender =
-        document.getElementById("studentGender").value;
+localStorage.setItem("studentFaculty", faculty);
 
-    const faculty =
-        document.getElementById("studentFaculty").value;
-
-    const level =
-        document.getElementById("studentLevel").value;
+localStorage.setItem("studentLevel", level);
 
 
-    if (
-        name === "" ||
-        age === "" ||
-        gender === "" ||
-        faculty === "" ||
-        level === ""
-    ) {
-
-        document
-            .getElementById("errorMessage")
-            .innerText =
-            "Please complete all the information.";
-
-        return;
-
-    }
+document.getElementById("welcomeName").innerText =
+"Welcome, " + name + "!";
 
 
-    localStorage.setItem(
-        "studentName",
-        name
-    );
-
-    localStorage.setItem(
-        "studentAge",
-        age
-    );
-
-    localStorage.setItem(
-        "studentGender",
-        gender
-    );
-
-    localStorage.setItem(
-        "studentFaculty",
-        faculty
-    );
-
-    localStorage.setItem(
-        "studentLevel",
-        level
-    );
+document.getElementById("dashFaculty").innerText =
+faculty;
 
 
-    alert(
-        "Welcome to Nigerian University Life, "
-        + name
-        + "!"
-    );
+document.getElementById("dashLevel").innerText =
+level;
+
+
+document
+.getElementById("createScreen")
+.classList
+.add("hidden");
+
+
+document
+.getElementById("dashboardScreen")
+.classList
+.remove("hidden");
 
 }
 
 </script>
 
 </body>
+
 </html>
