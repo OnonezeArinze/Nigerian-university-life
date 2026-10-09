@@ -414,6 +414,27 @@ document
 
 }
 
+function showAction(message) {
+    alert(message);
+}
+
+document.querySelectorAll(".card button").forEach(function(button) {
+    const action = button.innerText.trim();
+
+    button.onclick = function() {
+        if (action.includes("Study")) {
+            showAction("You studied today! Keep working towards a better GPA.");
+        } else if (action.includes("Find a Job")) {
+            showAction("You looked for a job. More job opportunities are coming soon!");
+        } else if (action.includes("Eat")) {
+            showAction("You had a meal. Take care of your health!");
+        } else if (action.includes("Social Life")) {
+            showAction("You spent time socialising. Enjoy campus life!");
+        } else if (action.includes("Campus")) {
+            showAction("Welcome to campus! Explore and meet new people.");
+        }
+    };
+});
 </script>
 
 </body>
